@@ -1,0 +1,48 @@
+{
+  "导师评价_1": {
+    "headers": [
+      "学校",
+      "学院",
+      "姓名",
+      "评分",
+      "评价"
+    ],
+    "total_rows": 15369,
+    "school_count": 50,
+    "sample_schools": [
+      "上海交通大学",
+      "上海财经大学",
+      "东北大学",
+      "东南大学",
+      "中南大学",
+      "中国中医科学院",
+      "中国农业科学院",
+      "中国海洋大学",
+      "中国科学技术大学",
+      "中央美术学院"
+    ]
+  },
+  "导师评价_0": {
+    "headers": [
+      "学校",
+      "专业",
+      "姓名",
+      "评分",
+      "评价"
+    ],
+    "total_rows": 12913,
+    "school_count": 387,
+    "sample_schools": [
+      "Brown University",
+      "California Institute of Technology",
+      "Case Western Reserve University",
+      "Clemson University",
+      "Columbia University",
+      "Concordia University",
+      "Delft University of Technology",
+      "Duke University",
+      "Imperial College of SciTechMed",
+      "KAIST"
+    ]
+  }
+}

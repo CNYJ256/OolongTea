@@ -1,9 +1,15 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import NavHomeView from '../views/NavHomeView.vue'
 import HomeView from '../views/HomeView.vue'
 
 const routes = [
   {
     path: '/',
+    name: 'nav-home',
+    component: NavHomeView,
+  },
+  {
+    path: '/courses',
     name: 'home',
     component: HomeView,
   },
@@ -11,6 +17,16 @@ const routes = [
     path: '/course/:id',
     name: 'course-detail',
     component: () => import('../views/CourseDetailView.vue'),
+  },
+  {
+    path: '/mentors',
+    name: 'mentor-list',
+    component: () => import('../views/MentorListView.vue'),
+  },
+  {
+    path: '/mentor/:id',
+    name: 'mentor-detail',
+    component: () => import('../views/MentorDetailView.vue'),
   },
   {
     path: '/:pathMatch(.*)*',

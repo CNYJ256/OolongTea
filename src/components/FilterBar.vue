@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
     <!-- Category filter -->
-    <div class="flex-1">
-      <label class="block text-xs text-gray-500 mb-1 font-medium">分类</label>
+    <div v-if="categories.length > 0" class="flex-1">
+      <label class="block text-xs text-gray-500 mb-1 font-medium">{{ filterLabels.first }}</label>
       <select
         :value="category"
         @change="$emit('update:category', ($event.target).value)"
@@ -18,8 +18,8 @@
     </div>
 
     <!-- Department filter -->
-    <div class="flex-1">
-      <label class="block text-xs text-gray-500 mb-1 font-medium">院系</label>
+    <div v-if="departments.length > 0" class="flex-1">
+      <label class="block text-xs text-gray-500 mb-1 font-medium">{{ filterLabels.second }}</label>
       <select
         :value="department"
         @change="$emit('update:department', ($event.target).value)"
@@ -53,6 +53,10 @@ defineProps({
   department: {
     type: String,
     default: '',
+  },
+  filterLabels: {
+    type: Object,
+    default: () => ({ first: '分类', second: '院系' }),
   },
 })
 

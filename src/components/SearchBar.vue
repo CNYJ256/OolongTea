@@ -21,7 +21,7 @@
       :value="localValue"
       @input="onInput"
       type="text"
-      placeholder="搜索课程名、教师、代码..."
+      :placeholder="placeholder"
       class="w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-lg text-sm
              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
              placeholder-gray-400 transition-shadow"
@@ -59,6 +59,10 @@ const props = defineProps({
   modelValue: {
     type: String,
     default: '',
+  },
+  placeholder: {
+    type: String,
+    default: '搜索课程名、教师、代码...',
   },
 })
 
