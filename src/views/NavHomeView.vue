@@ -35,6 +35,21 @@
           <template v-else>加载中...</template>
         </p>
       </div>
+
+      <!-- YourTJ card -->
+      <div
+        class="w-full sm:w-[350px] bg-white border border-gray-200 rounded-xl p-8
+               cursor-pointer transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
+        @click="goToYourTJ"
+      >
+        <div class="text-4xl mb-4">🔗</div>
+        <h2 class="text-xl font-semibold text-gray-900 mb-2">YourTJ</h2>
+        <p class="text-sm text-gray-500 mb-4">查看 YourTJ 课程评价</p>
+        <p class="text-sm text-gray-400">
+          <template v-if="yourtjCount !== null">{{ yourtjCount.toLocaleString() }} 门课程</template>
+          <template v-else>加载中...</template>
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -47,12 +62,14 @@ const router = useRouter()
 
 const mentorCount = ref(null)
 const courseCount = ref(null)
+const yourtjCount = ref(null)
 
 onMounted(async () => {
   try {
-    const [mentorRes, courseRes] = await Promise.all([
+    const [mentorRes, courseRes, yourtjRes] = await Promise.all([
       fetch(`${import.meta.env.BASE_URL}data/mentor-index.min.json`),
       fetch(`${import.meta.env.BASE_URL}data/courses-index.min.json`),
+      fetch(`${import.meta.env.BASE_URL}data/yourtj/yourtj-index.min.json`),
     ])
 
     if (mentorRes.ok) {
@@ -63,6 +80,11 @@ onMounted(async () => {
     if (courseRes.ok) {
       const data = await courseRes.json()
       courseCount.value = data.length
+    }
+
+    if (yourtjRes.ok) {
+      const data = await yourtjRes.json()
+      yourtjCount.value = data.length
     }
   } catch {
     // Card still works without the count
@@ -75,5 +97,9 @@ function goToCourses() {
 
 function goToMentors() {
   router.push({ name: 'mentor-list' })
+}
+
+function goToYourTJ() {
+  router.push({ name: 'yourtj-list' })
 }
 </script>

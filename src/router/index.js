@@ -29,6 +29,16 @@ const routes = [
     component: () => import('../views/MentorDetailView.vue'),
   },
   {
+    path: '/yourtj',
+    name: 'yourtj-list',
+    component: () => import('../views/YourTJListView.vue'),
+  },
+  {
+    path: '/yourtj/course/:id',
+    name: 'yourtj-detail',
+    component: () => import('../views/YourTJDetailView.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('../views/NotFoundView.vue'),
