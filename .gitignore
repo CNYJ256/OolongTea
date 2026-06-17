@@ -1,0 +1,7 @@
+node_modules/
+dist/
+wlc.courses.json
+wlc.ratings.json
+.DS_Store
+*.log
+.playwright-mcp/
