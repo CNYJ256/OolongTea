@@ -1,8 +1,19 @@
 <template>
   <div class="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col items-center justify-center px-4 py-12">
     <div class="max-w-4xl w-full text-center mb-12">
-      <h1 class="text-3xl font-bold text-gray-900 mb-3">乌龙茶选课社区</h1>
-      <p class="text-gray-500 text-base">同济大学课程评价与导师评价社区</p>
+      <h1 class="text-3xl font-bold text-gray-900 mb-3">选课社区备份</h1>
+      <p class="text-gray-500 text-base">数据来源旧乌龙茶社区、YourTJ社区API和个人收集</p>
+      <p class="text-gray-500 text-base">欢迎前往
+        <a
+          href="https://github.com/cnyj256/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 underline"
+        >
+          Github
+        </a>
+        提供相关数据。
+      </p>
     </div>
 
     <div class="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-4xl">
@@ -13,8 +24,8 @@
         @click="goToCourses"
       >
         <div class="text-4xl mb-4">📚</div>
-        <h2 class="text-xl font-semibold text-gray-900 mb-2">课程评价</h2>
-        <p class="text-sm text-gray-500 mb-4">搜索课程、查看评价与成绩分布</p>
+        <h2 class="text-xl font-semibold text-gray-900 mb-2">乌龙茶社区(旧)</h2>
+        <p class="text-sm text-gray-500 mb-4">2024-2026.5评价数据</p>
         <p class="text-sm text-gray-400">
           <template v-if="courseCount !== null">{{ courseCount.toLocaleString() }} 门课程</template>
           <template v-else>加载中...</template>
@@ -29,7 +40,7 @@
       >
         <div class="text-4xl mb-4">👨‍🏫</div>
         <h2 class="text-xl font-semibold text-gray-900 mb-2">导师评价</h2>
-        <p class="text-sm text-gray-500 mb-4">查看导师评价、选择合适导师</p>
+        <p class="text-sm text-gray-500 mb-4">查看导师评价、选择合适导师，2024年数据</p>
         <p class="text-sm text-gray-400">
           <template v-if="mentorCount !== null">{{ mentorCount.toLocaleString() }} 位导师</template>
           <template v-else>加载中...</template>
@@ -43,8 +54,8 @@
         @click="goToYourTJ"
       >
         <div class="text-4xl mb-4">🔗</div>
-        <h2 class="text-xl font-semibold text-gray-900 mb-2">YourTJ</h2>
-        <p class="text-sm text-gray-500 mb-4">查看 YourTJ 课程评价</p>
+        <h2 class="text-xl font-semibold text-gray-900 mb-2">YourTJ(新)</h2>
+        <p class="text-sm text-gray-500 mb-4">查看 YourTJ 课程评价，每周更新抓取</p>
         <p class="text-sm text-gray-400">
           <template v-if="yourtjCount !== null">{{ yourtjCount.toLocaleString() }} 门课程</template>
           <template v-else>加载中...</template>
