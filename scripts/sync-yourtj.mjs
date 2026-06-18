@@ -12,7 +12,7 @@
  *   YOURTJ_API_BASE — override API base (default https://jcourse.yourtj.de)
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync, renameSync, rmSync, readdirSync } from 'fs'
+import { readFileSync, writeFileSync, mkdirSync, existsSync, renameSync, rmSync, readdirSync, cpSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import https from 'https'
@@ -30,7 +30,7 @@ const DETAIL_DIR = 'yourtj-detail'
 const REQUEST_DELAY_MS = 200
 const REQUEST_TIMEOUT_MS = 15000
 const MAX_PAGES = 1000
-const MAX_DETAIL_FETCHES = 2000
+const MAX_DETAIL_FETCHES = 10000
 const MAX_RETRIES = 3
 const RETRY_BASE_MS = 1000
 
@@ -427,12 +427,13 @@ function writeOutput(index, departments, detailMap) {
 
   log(`Validation OK: ${index.length} index entries, ${totalDetailEntries} detail entries across ${Object.keys(detailMap).length} buckets`)
 
-  // Atomic swap: delete old public/data/yourtj/ → rename tmp
+  // Atomic swap: delete old public/data/yourtj/ → copy tmp → remove tmp
   if (existsSync(PUBLIC_DIR)) {
     rmSync(PUBLIC_DIR, { recursive: true, force: true })
   }
   ensureDir(dirname(PUBLIC_DIR))
-  renameSync(TMP_DIR, PUBLIC_DIR)
+  cpSync(TMP_DIR, PUBLIC_DIR, { recursive: true, force: true })
+  rmSync(TMP_DIR, { recursive: true, force: true })
 
   log(`Published to ${PUBLIC_DIR}`)
 }

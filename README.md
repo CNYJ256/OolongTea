@@ -1,7 +1,7 @@
 # 乌龙茶选课社区
 
 同济大学课程评价与导师评价社区，基于「乌龙茶」选课社区数据构建的静态站点。
-
+![icon](icon.png)
 ## 功能
 
 | 模块 | 路径 | 说明 |
@@ -29,6 +29,10 @@ GitHub Actions → GitHub Pages 自动部署
 | 导师评价 | 15,109 导师 · 28,282 评价 | 2024 导师评价数据 |
 | YourTJ | ~9,271 课程 | [YourTJ](https://jcourse.yourtj.de) 公开 API |
 
+## 数据来源：
+- 乌龙茶社区备份数据
+- [YourTJ](https://jcourse.yourtj.de) 公开课程评价数据。本站仅做静态索引与展示。
+
 ## 本地开发
 
 ```bash
@@ -48,5 +52,3 @@ npm run build          # 完整构建
 
 - **代码**：[GNU AGPL-3.0](LICENSE-CODE)
 - **数据**：[ODbL-1.0](LICENSE-DATA)（Open Database License）
-
-数据来源：乌龙茶社区备份数据、[YourTJ](https://jcourse.yourtj.de) 公开课程评价数据。本站仅做静态索引与展示。
