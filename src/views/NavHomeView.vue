@@ -17,6 +17,20 @@
     </div>
 
     <div class="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-4xl">
+      <!-- YourTJ card -->
+      <div
+        class="w-full sm:w-[350px] bg-white border border-gray-200 rounded-xl p-8
+               cursor-pointer transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
+        @click="goToYourTJ"
+      >
+        <div class="text-4xl mb-4">🔗</div>
+        <h2 class="text-xl font-semibold text-gray-900 mb-2">YourTJ(新)</h2>
+        <p class="text-sm text-gray-500 mb-4">查看 YourTJ 课程评价，每周更新抓取</p>
+        <p class="text-sm text-gray-400">
+          <template v-if="yourtjCount !== null">{{ yourtjCount.toLocaleString() }} 门课程</template>
+          <template v-else>加载中...</template>
+        </p>
+      </div>
       <!-- Course card -->
       <div
         class="w-full sm:w-[350px] bg-white border border-gray-200 rounded-xl p-8
@@ -43,21 +57,6 @@
         <p class="text-sm text-gray-500 mb-4">查看导师评价、选择合适导师，2024年数据</p>
         <p class="text-sm text-gray-400">
           <template v-if="mentorCount !== null">{{ mentorCount.toLocaleString() }} 位导师</template>
-          <template v-else>加载中...</template>
-        </p>
-      </div>
-
-      <!-- YourTJ card -->
-      <div
-        class="w-full sm:w-[350px] bg-white border border-gray-200 rounded-xl p-8
-               cursor-pointer transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
-        @click="goToYourTJ"
-      >
-        <div class="text-4xl mb-4">🔗</div>
-        <h2 class="text-xl font-semibold text-gray-900 mb-2">YourTJ(新)</h2>
-        <p class="text-sm text-gray-500 mb-4">查看 YourTJ 课程评价，每周更新抓取</p>
-        <p class="text-sm text-gray-400">
-          <template v-if="yourtjCount !== null">{{ yourtjCount.toLocaleString() }} 门课程</template>
           <template v-else>加载中...</template>
         </p>
       </div>
