@@ -63,6 +63,11 @@
       </div>
     </div>
   </div>
+  <img
+  :src="`${import.meta.env.BASE_URL}icon.png`"
+  alt="看板娘"
+  class="fixed bottom-4 right-4 w-40 md:w-56 pointer-events-none z-10"
+  />
 </template>
 
 <script setup>
